@@ -1,0 +1,7 @@
+<root>
+    <item name='net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry void register(net.minecraft.entity.EntityType&lt;? extends net.minecraft.entity.LivingEntity&gt;, net.minecraft.entity.attribute.DefaultAttributeContainer.Builder)'>
+        <annotation name='org.jetbrains.annotations.Contract'>
+            <val val="&quot;null,_-&gt;fail;_,null-&gt;fail&quot;"/>
+        </annotation>
+    </item>
+</root>
