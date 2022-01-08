@@ -125,7 +125,7 @@ public class ChonkySheepEntity extends SheepEntity {
     }
 
     public int getChonkyness() {
-        return this.dataTracker.get(CHONKYNESS);
+        return Math.min(this.dataTracker.get(CHONKYNESS), getMaxChonkyness());
     }
 
     public void setChonkyness(int chonkyness) {
@@ -148,7 +148,7 @@ public class ChonkySheepEntity extends SheepEntity {
                       .orElseGet(() -> this.world.random.nextBoolean() ? firstParentColor : secondParentColor);
     }
 
-    public int getMaxChonkyness() {
+    public static int getMaxChonkyness() {
         return ChonkySheepMod.config.maxChonkyness;
     }
 }

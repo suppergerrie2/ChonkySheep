@@ -26,7 +26,7 @@ public class ChonkySheepWoolEntityModel extends QuadrupedEntityModel<ChonkySheep
         this.headAngle   = sheepEntity.getHeadAngle(h);
 
         //noinspection PointlessArithmeticExpression
-        scale = ((sheepEntity.getChonkyness() / (float) sheepEntity.getMaxChonkyness()) * (MAX_SCALE - 1)) + 1;
+        scale = ((sheepEntity.getChonkyness() / (float) ChonkySheepEntity.getMaxChonkyness()) * (MAX_SCALE - 1)) + 1;
     }
 
     public void setAngles(ChonkySheepEntity sheepEntity, float f, float g, float h, float i, float j) {
