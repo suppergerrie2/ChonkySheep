@@ -25,7 +25,6 @@ import java.util.*;
 
 public class ChonkySheepEntity extends SheepEntity {
 
-    private static final int                            MAX_CHONKYNESS = 20;
     private static final TrackedData<Integer>           CHONKYNESS     = DataTracker.registerData(
             ChonkySheepEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final Map<DyeColor, ItemConvertible> DROPS;
@@ -126,11 +125,11 @@ public class ChonkySheepEntity extends SheepEntity {
     }
 
     public int getChonkyness() {
-        return this.dataTracker.get(CHONKYNESS);
+        return Math.min(this.dataTracker.get(CHONKYNESS), getMaxChonkyness());
     }
 
     public void setChonkyness(int chonkyness) {
-        chonkyness = Math.min(MAX_CHONKYNESS, chonkyness);
+        chonkyness = Math.min(getMaxChonkyness(), chonkyness);
         this.dataTracker.set(CHONKYNESS, chonkyness);
     }
 
@@ -149,7 +148,7 @@ public class ChonkySheepEntity extends SheepEntity {
                       .orElseGet(() -> this.world.random.nextBoolean() ? firstParentColor : secondParentColor);
     }
 
-    public int getMaxChonkyness() {
-        return MAX_CHONKYNESS;
+    public static int getMaxChonkyness() {
+        return ChonkySheepMod.config.maxChonkyness;
     }
 }
