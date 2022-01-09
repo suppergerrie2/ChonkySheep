@@ -1,30 +1,30 @@
 package com.suppergerrie2.chonkysheep.entities.rendering;
 
-import com.suppergerrie2.chonkysheep.entities.ChonkySheepEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.*;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
+import net.minecraft.client.render.entity.model.EntityModelLoader;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
-public class ChonkySheepWoolFeatureRenderer extends FeatureRenderer<ChonkySheepEntity, ChonkySheepEntityModel<ChonkySheepEntity>> {
+public class ChonkySheepWoolFeatureRenderer extends FeatureRenderer<SheepEntity, ChonkySheepEntityModel<SheepEntity>> {
     private static final Identifier                              SKIN = new Identifier("textures/entity/sheep/sheep_fur.png");
     private final        ChonkySheepWoolEntityModel model;
 
     public ChonkySheepWoolFeatureRenderer(
-            FeatureRendererContext<ChonkySheepEntity, ChonkySheepEntityModel<ChonkySheepEntity>> context,
+            FeatureRendererContext<SheepEntity, ChonkySheepEntityModel<SheepEntity>> context,
             EntityModelLoader loader) {
         super(context);
         this.model = new ChonkySheepWoolEntityModel(loader.getModelPart(EntityModelLayers.SHEEP_FUR));
     }
 
     public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light,
-                       ChonkySheepEntity chonkySheepEntity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
+                       SheepEntity chonkySheepEntity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
         if (chonkySheepEntity.isSheared()) {
             return;
         }

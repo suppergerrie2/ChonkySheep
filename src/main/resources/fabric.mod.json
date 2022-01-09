@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "schonkysheep",
   "version": "${version}",
-
   "name": "Chonky Sheep",
   "description": "But what if sheep were chonky🤔",
   "authors": [
@@ -12,9 +11,7 @@
     "homepage": "https://suppergerrie2.com/",
     "sources": "https://github.com/suppergerrie2/ChonkySheep"
   },
-
   "license": "GPL-3.0-or-later",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -30,12 +27,11 @@
   "mixins": [
     "schonkysheep.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16",
+    "minecraft": "1.18.x",
+    "java": ">=17",
     "cloth-config2": ">=5.0.38"
   }
 }

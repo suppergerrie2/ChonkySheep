@@ -1,12 +1,14 @@
 package com.suppergerrie2.chonkysheep.entities.rendering;
 
-import com.suppergerrie2.chonkysheep.entities.ChonkySheepEntity;
+import com.suppergerrie2.chonkysheep.ChonkySheepMod;
+import com.suppergerrie2.chonkysheep.IChonkyness;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.passive.SheepEntity;
 
-public class ChonkySheepWoolEntityModel extends QuadrupedEntityModel<ChonkySheepEntity> {
+public class ChonkySheepWoolEntityModel extends QuadrupedEntityModel<SheepEntity> {
     private static final float MAX_SCALE = 2;
 
     final float childHeadYOffset       = 8.0F;
@@ -20,16 +22,16 @@ public class ChonkySheepWoolEntityModel extends QuadrupedEntityModel<ChonkySheep
         super(root, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
     }
 
-    public void animateModel(ChonkySheepEntity sheepEntity, float f, float g, float h) {
+    public void animateModel(SheepEntity sheepEntity, float f, float g, float h) {
         super.animateModel(sheepEntity, f, g, h);
         this.head.pivotY = 6.0F + sheepEntity.getNeckAngle(h) * 9.0F;
         this.headAngle   = sheepEntity.getHeadAngle(h);
 
         //noinspection PointlessArithmeticExpression
-        scale = ((sheepEntity.getChonkyness() / (float) ChonkySheepEntity.getMaxChonkyness()) * (MAX_SCALE - 1)) + 1;
+        scale = ((((IChonkyness)sheepEntity).getChonkyness() / (float) ChonkySheepMod.getMaxChonkyness()) * (MAX_SCALE - 1)) + 1;
     }
 
-    public void setAngles(ChonkySheepEntity sheepEntity, float f, float g, float h, float i, float j) {
+    public void setAngles(SheepEntity sheepEntity, float f, float g, float h, float i, float j) {
         super.setAngles(sheepEntity, f, g, h, i, j);
         this.head.pitch = this.headAngle;
     }

@@ -1,10 +1,10 @@
 package com.suppergerrie2.chonkysheep.entities.rendering;
 
-import com.suppergerrie2.chonkysheep.entities.ChonkySheepEntity;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.QuadrupedEntityModel;
+import net.minecraft.entity.passive.SheepEntity;
 
-public class ChonkySheepEntityModel<T extends ChonkySheepEntity> extends QuadrupedEntityModel<T> {
+public class ChonkySheepEntityModel<T extends SheepEntity> extends QuadrupedEntityModel<T> {
 
     private float headPitchModifier;
 
